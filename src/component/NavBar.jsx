@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import BurgerButton from './BurgerButton'
+import CartWidget from './CartWidget'
 
 function NavBar() {
 
@@ -14,11 +15,11 @@ function NavBar() {
       <NavContainer>
         <h2>Navbar <span>Responsive</span></h2>
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="#h">Inicio</a>
-          <a onClick={handleClick} href="#h">Inventario</a>
-          <a onClick={handleClick} href="#h">nosotros</a>
-          <a onClick={handleClick} href="#h">Contacto</a>
-          <a onClick={handleClick} href="#h">Noticias</a>
+          <a onClick={handleClick} href="#h">Inicio      </a>
+          <a onClick={handleClick} href="#h">Inventario      </a>
+          <a onClick={handleClick} href="#h">Nosotros      </a>
+          <a onClick={handleClick} href="#h">Contacto      </a>
+          <a onClick={handleClick} href="#h"><CartWidget/></a>
         </div>
         <div className='burger'>
           <BurgerButton clicked={clicked} handleClick={handleClick} />
@@ -40,7 +41,7 @@ const NavContainer = styled.nav`
     }
   }
   padding: .4rem;
-  background-color: #333;
+  background-color: #333;  /*color de la NavBar */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,10 +106,10 @@ const BgDiv = styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
-  transition: all .6s ease ;
+  transition: all .6s ease ;/*animacion*/
   
   &.active{
-    border-radius: 0 0 80% 0;
+    border-radius: 0 0 80% 0; /*ArribaIzquierda-ArribaDerecha-AbajoDerecha-AbajoIzquierda*/
     top: 0;
     left: 0;
     width: 100%;

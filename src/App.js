@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <NavBar/>
-      <ItemListContainer/>
+      <ItemListContainer saludo={"prop"}/>
       <ItemCount stock={5} initial={1} onAdd={onAdd}/>
     </>
   );

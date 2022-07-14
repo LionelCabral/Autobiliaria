@@ -22,9 +22,14 @@ const ItemListContainer = ({ saludo }) => {
 
     
     return (
+        <>
+        <div>
+        <h1>{saludo}</h1>
+        </div>
         <div>
             <ItemList items={items}/>
         </div>
+        </>
     )
 };
 export default ItemListContainer;

@@ -1,19 +1,22 @@
 import './App.css';
-import NavBar from './component/NavBar';
-import ItemListContainer from './component/ItemListContainer';
-import ItemCount from './component/ItemCount';
+import NavBar from './component/NavBar/NavBar';
+import ItemListContainer from './component/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from "./component/ItemDetailContainer/ItemDetailContainer";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Loader from "./component/Loader/Loader";
 
-function App() {
-  const onAdd = () => {
-    console.log ("onAdd")
-  }
-  return (
-    <>
-      <NavBar/>
-      <ItemListContainer saludo={"prop"}/>
-      <ItemCount stock={5} initial={1} onAdd={onAdd}/>
-    </>
+const App = () => { 
+  return (    
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<ItemListContainer />} />
+        <Route path='category/:category' element={<ItemListContainer />} />
+        <Route path="item/:id" element={<ItemDetailContainer />} />
+        <Route path="*" element={<Link to="/"><Loader /></Link>} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

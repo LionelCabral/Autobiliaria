@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import BurgerButton from './BurgerButton'
-import CartWidget from './CartWidget'
+import CartWidget from '../CartWidget'
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
 
@@ -13,7 +14,16 @@ function NavBar() {
   return (
     <>
       <NavContainer>
-        <h2>Navbar <span>Responsive</span></h2>
+        <Link to="/" className="logo-container">        
+        <h2>Tienda</h2>        
+      </Link>
+        <div className="link-container"> 
+        <ul>
+          <NavLink to="/category/Componente" className={({isActive})=>isActive? "link-activo" : "link"}>Componentes</NavLink>
+          <NavLink to="/category/Hook" className={({isActive})=>isActive? "link-activo" : "link"}>Hooks</NavLink>
+          <CartWidget />
+        </ul>
+      </div>
         <div className={`links ${clicked ? 'active' : ''}`}>
           <a onClick={handleClick} href="#h">Inicio      </a>
           <a onClick={handleClick} href="#h">Inventario      </a>

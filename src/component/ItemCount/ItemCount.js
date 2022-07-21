@@ -11,7 +11,7 @@ const ItemCount = ({stock, initial,price, onAdd}) => {
     
 
     const sumar = () => {
-        (count < stock) && setCount(count +1);
+        (count <= stock) && setCount(count +1);
         }
     
 

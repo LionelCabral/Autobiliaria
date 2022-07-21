@@ -1,4 +1,5 @@
 .itemDetail {
+    margin: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -15,6 +16,7 @@
   }
   
   .img-detail {
+    margin: 10px;
     height: 100%;
     width: 100%;
     object-fit: cover;

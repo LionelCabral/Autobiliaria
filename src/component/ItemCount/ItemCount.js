@@ -24,7 +24,9 @@ const ItemCount = ({stock, initial,price, onAdd}) => {
             </div>
             <div>
                 <span style={{color:"green", fontSize:"1.2em"}}><b>Total: ${count * price}</b></span>
-                <button className="add-btn" onClick={onAdd}>Enviar al Carrito</button>
+                <button className="add-btn" onClick={() => onAdd(count)}>
+                    Enviar al Carrito
+                </button>
             </div>
         </div>
     );

@@ -27,7 +27,8 @@ const Cart = () => {
                 <img src={prod.img} alt="producto" className="imgCarrito" width="70px" />
                 <div>
                     <h2>{prod.name}</h2>
-                    <h2>$ {prod.price}</h2>
+                    <h4>Precio: $ {prod.price}</h4>
+                    <h4>Cantidad: {prod.cantidad}</h4>
                 </div>
                 <button onClick={() => removeItem(prod.id)}>Eliminar</button>
                 </div>

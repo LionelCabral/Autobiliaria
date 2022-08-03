@@ -1,0 +1,32 @@
+.carrito{
+    margin: 0px 0px;
+    padding-right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+    transition: all 0.2s ease-in-out;
+}
+
+.unidades{
+    margin-left: 4px;
+    margin-right: 4px;
+    border: 1px solid black;
+    padding: 0px 8px;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+}
+
+.carrito:hover{
+    color: orange;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width:760px){
+    .carrito{
+        margin: 0px 0px;
+        padding-right: 15px;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}

@@ -1,32 +1,30 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import Loader from "../Loader/Loader";
-import products from "../../mock/products";
 import { useParams } from "react-router-dom";
+import {doc, getDoc, getFirestore} from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState({})
-    const [cargando, setCargando] = useState(true)
-    const { id } = useParams();
-
-    const traerItemPorId = () => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-            resolve(
-                products.find(obj => obj.id === Number(id))
-            );
-            }, 1000);
-        });
-    };
-
+    const [item, setItem] = useState ({})
+    const [Loaded,setLoaded] = useState (true);
+    const {id}=useParams()
+    
+    
+    
+    
     useEffect(() => {
-        traerItemPorId().then(res => {
-            setItem(res);
-            setCargando(false)
-        })
-    },[id]);
-    console.log(item)
-    return(<>{cargando ? <Loader /> : <ItemDetail item={item} /> }</>)
+        const querydb = getFirestore ();
+        const queryDoc = doc(querydb, 'items', id  ) ;
+        getDoc (queryDoc)
+    
+        .then(res => setItem({id: res.id, ...res.data()})) 
+        setLoaded(false)
+        
+    
+    }, [id]);
+    
+    
+    return(<>{Loaded ? <Loader /> : <ItemDetail item={item} /> }</>)
 };
 
 export default ItemDetailContainer;

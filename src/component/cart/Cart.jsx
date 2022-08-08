@@ -1,7 +1,7 @@
 import {useContext} from 'react'
 import {CartContext} from '../../context/cartContext'
 import {Link} from 'react-router-dom'
-import './Cart.css'
+import OrderForm from './OrderForm'
 
 const Cart = () => {
     const {removeItem, clear, total, cart} = useContext(CartContext);
@@ -31,12 +31,18 @@ const Cart = () => {
                     <h4>Cantidad: {prod.cantidad}</h4>
                 </div>
                 <button onClick={() => removeItem(prod.id)}>Eliminar</button>
+                <Link to={`/item/${prod.id}`}>
+                    <button onClick={() => removeItem(prod.id)}>Modificar la cantidad</button>
+                </Link>
                 </div>
             )
             )}
         <button onClick={clear}>Eliminar todos los productos</button>
         <h3>Total: $ {total()}</h3>
+        <div className='buy-form'>
+        <OrderForm cart={cart} total={total()} />
         </div>
+    </div>
     )
 }
 export default Cart;

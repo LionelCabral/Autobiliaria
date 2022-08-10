@@ -2,27 +2,28 @@ import React, { useState } from "react";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 import './Cart.css'
 
-const OrderForm = ({ cart, total }) => {
+const OrderForm = ({ cart, total, clear}) => {
     const [form, setForm] = useState({
         name: "",
         phone: "",
         mail: "",
+        mail2: ""
     });
     
     const addOrder = () => {
-        const order = { buyer: form, cart, total };
-        
+        const fecha = new Date();
+        const order = { buyer: form, cart, total, fecha};
+        console.log (fecha)
         const db = getFirestore();
         const ordersCollection = collection(db, 'orders');
-        console.log (total)
         addDoc(ordersCollection, order)
-        .then (({id}) => console.log (id));
-        
+        .then (({id}) => alert (`Gracias por tu compra tu numero de pedido es: ${id}`))
+        clear()
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        addOrder();
+            e.preventDefault(); 
+            form.mail === form.mail2 ? addOrder() : alert('mails diferentes') 
     };
 
     const handleChange = (e) => {
@@ -42,7 +43,9 @@ const OrderForm = ({ cart, total }) => {
             <input type='text' name='phone' onChange={handleChange} />
             <label> Mail </label>
             <input type='text' name='mail' onChange={handleChange} />
-            <input type='submit' />
+            <label> Confirmacion de email </label>
+            <input type='text' name='mail2' onChange={handleChange} />
+            <button type='submit'>Realizar compra</button>
         </form>
         </div>
     );

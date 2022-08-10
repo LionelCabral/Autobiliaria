@@ -24,23 +24,26 @@ const Cart = () => {
                         display: 'flex',
                     }}
                 >
-                <img src={prod.img} alt="producto" className="imgCarrito" width="70px" />
-                <div>
+                <img src={prod.img} alt="producto" width="120px" height="120px" />
+                <div style={{marginLeft: '20px'}}>
                     <h2>{prod.name}</h2>
                     <h4>Precio: $ {prod.price}</h4>
                     <h4>Cantidad: {prod.cantidad}</h4>
                 </div>
-                <button onClick={() => removeItem(prod.id)}>Eliminar</button>
-                <Link to={`/item/${prod.id}`}>
+
+                <div style={{marginLeft: '20px'}}>
+                    <button onClick={() => removeItem(prod.id)}>Eliminar</button>
+                    <Link to={`/item/${prod.id}`}>
                     <button onClick={() => removeItem(prod.id)}>Modificar la cantidad</button>
-                </Link>
+                    </Link>
+                </div>
                 </div>
             )
             )}
         <button onClick={clear}>Eliminar todos los productos</button>
         <h3>Total: $ {total()}</h3>
-        <div className='buy-form'>
-        <OrderForm cart={cart} total={total()} />
+        <div>
+        <OrderForm cart={cart} total={total()} clear={clear}/>
         </div>
     </div>
     )

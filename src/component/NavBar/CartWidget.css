@@ -3,22 +3,22 @@
     padding-right: 15px;
     font-size: 2rem;
     cursor: pointer;
-    color: black;
+    color: white;
     transition: all 0.2s ease-in-out;
 }
 
 .unidades{
     margin-left: 4px;
     margin-right: 4px;
-    border: 1px solid black;
+    border: 1px solid var(--fondo);
     padding: 0px 8px;
     font-size: 1.2rem;
-    background-color: black;
+    background-color: var(--fondo);
     color: white;
 }
 
 .carrito:hover{
-    color: orange;
+    color: var(--titulo);
     transition: all 0.2s ease-in-out;
 }
 

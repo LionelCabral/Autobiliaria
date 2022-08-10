@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Ecommerce de ropa ENDAVANT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tienda de ropa y accesorios para hombre.
 
-## Available Scripts
+![Endavant](public/ReactApp.gif)
 
-In the project directory, you can run:
+## Dependencias Descargadas
 
-### `npm start`
+[Firebase](https://firebase.google.com/).\
+Utilizo firebase en este proyecto para poder guardar en una base de datos (Firestore) los productos que se muestran en el sitio con todas sus características.
+También firebase me permite crear usuarios para poder tener un control sobre la gente que compra en el sitio.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[React-Router-Dom](https://reactrouter.com/web/guides/quick-start).\
+Esta librería se encarga de generar rutas dinámicas para asi facilitar la navegabilidad por el sitio.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[React Bootstrap](https://react-bootstrap.github.io/).\
+React Bootstrap nos ayuda gracias a sus componentes y sus clases ya creadas a hacer la maquetación del sitio mas rapidamente y también lograr hacerlo responsive de una manera mas sencilla
 
-### `npm test`
+[React Icons](https://react-icons.github.io/react-icons/).\
+Con React Icons importamos en nuestro proyecto cualquier ícono que esta librería nos provee.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[React Spinners](https://www.npmjs.com/package/react-spinners).\
+Spinners utlizados para mostrar mediante los periodos de carga en el sitio
 
-### `npm run build`
+[React Toastify](https://www.npmjs.com/package/react-toastify).\
+Mensajes para alertar al usuario (succes, info, error)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Hooks Implementados
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+useState (React).\
+Usado para generar estados locales al componente y tambien guardar esos estados para poder luego modificarlos.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+useEffect (React).\
+Usado para montar y hacer un render de los componentes solo cuando se los tiene que mostrar.
 
-### `npm run eject`
+useContext (React).\
+Con useContext logramos crear un contexto para poder tener dentro todos los datos, estados y funciones que querramos pasar a cualquier componente.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+useParams y useHistory (React-Router-Dom).\
+Con useParams se detecta el parametro que le indicamos por la URL.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Pasos para ver el sitio desde local
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Desde la opcion Code copiamos el link HTTPS
 
-## Learn More
+2. En nustra terminal elegimos un lugar para clonar la carpeta y escribimos "git clone" + link que copiamos anteriormente
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+git clone https://github.com/EricWaje/ReactJs-EricWajnrajch.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Desde la terminal nos paramos en la carpeta raiz del proyecto e instalamos todos las dependencias que están dentro con "npm i"
 
-### Code Splitting
+```
+npm i
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Escribimos en la terminal "npm start" y se abrira el sitio en el navegador predeterminado.
 
-### Analyzing the Bundle Size
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

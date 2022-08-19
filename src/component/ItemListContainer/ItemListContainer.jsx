@@ -7,26 +7,39 @@ import { collection, getDocs, getFirestore, query, where } from 'firebase/firest
 
 const ItemListContainer = () => {
         const [items, setItems] = useState([])
-        const [Loaded,setLoaded] = useState (true);
+        const [loaded,setLoaded] = useState (true);
         const { category } = useParams()
     
     
             useEffect(() => {
                 const querydb = getFirestore ();
                 const queryCollection = collection (querydb, 'items');
-                if(category){
-                const queryFilter = query (queryCollection, where('category', '==', category))
-                getDocs (queryFilter)
-                .then (res => setItems(res.docs.map(item =>({...item.data(), id: item.id}))))
-                } else {
-                    getDocs (queryCollection)
-                    .then (res => setItems(res.docs.map(item =>({...item.data(), id: item.id}))))
+
+                const seeCategories = () => {
+                    const queryFilter = query (queryCollection, where('category', '==', category))
+                    seeAll(queryFilter)
                 }
-                setLoaded(false)
+                const seeAll = (props) => {
+                    getDocs (props)
+                    .then (res => setItems(res.docs.map(item =>({...item.data(), id: item.id}))))
+                    setLoaded(false);
+                }
+                category ? seeCategories() : seeAll(queryCollection);                
+
+                // if(category){
+                //     alert (typeof category)
+                //     const queryFilter = query (queryCollection, where('category', '==', category))
+                //     getDocs (queryFilter)
+                //     .then (res => setItems(res.docs.map(item =>({...item.data(), id: item.id}))))
+                // } else {
+                //     alert (typeof category)
+                //     getDocs (queryCollection)
+                //     .then (res => setItems(res.docs.map(item =>({...item.data(), id: item.id}))))
+                // }
     
             }, [category]);
     
-    return (<> { Loaded ? <Loader /> : <ItemList items={items}/> }  </>)
+    return (<> { loaded ? <Loader /> : <ItemList items={items}/> }  </>)
 };
 
 

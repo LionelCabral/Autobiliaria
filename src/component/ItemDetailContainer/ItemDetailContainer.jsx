@@ -6,7 +6,7 @@ import {doc, getDoc, getFirestore} from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState ({})
-    const [Loaded,setLoaded] = useState (true);
+    const [loaded,setLoaded] = useState (true);
     const {id}=useParams()
     
     
@@ -16,15 +16,12 @@ const ItemDetailContainer = () => {
         const querydb = getFirestore ();
         const queryDoc = doc(querydb, 'items', id  ) ;
         getDoc (queryDoc)
-    
         .then(res => setItem({id: res.id, ...res.data()})) 
         setLoaded(false)
-        
-    
     }, [id]);
     
     
-    return(<>{Loaded ? <Loader /> : <ItemDetail item={item} /> }</>)
+    return(<>{loaded ? < Loader /> : <ItemDetail item={item} /> }</>)
 };
 
 export default ItemDetailContainer;
